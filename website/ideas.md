@@ -1,5 +1,7 @@
 # Ideas
 
+`Note: If you have any ideas, add a new bullet point following the formating of the others`
+
 For our club to store information on ongoing and past projects that we wish to share with the public.
 We may not want to share our entire repository with the communities as we are entering competitions
 in which our first goal is to learn, but our second is to win (for now). With a website, we can allow
