@@ -1,0 +1,17 @@
+#robot block diagramm
+
+#communication systems
+
+#Controller
+
+#video system
+
+#driver interface
+
+#How will your driver connect to the robot? How many channels of communication will the robot use? 
+
+#Host 1: Briefly describe what this host is; Raspberry Pi, IP Cam, WIFI Adapter, etc.
+
+#Host 1's: MAC Address
+
+#Host 1's Ports :List the ports that this device will use.
