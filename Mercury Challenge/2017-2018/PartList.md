@@ -9,4 +9,6 @@ Servos:
 Raspberry Pi ZERO WH
 
 Camera:
-  - 
+  - Raspberry Pi Camera v2
+
+Arduino w/ Wi-Fi Shield
