@@ -29,7 +29,7 @@ void getWifi(){
   digitalWrite(noWifiLed, HIGH);
   while(status != WL_CONNECTED){
     status = Wifi.begin(ssid); //if wifi doesn't work, see how to poke out for unbroadcasted ssid's
-    delay(10000);
+    delay(2000);
   }
   network.begin(localPort);
   digitalWrite(noWifiLed, LOW);
