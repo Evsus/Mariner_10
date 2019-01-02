@@ -74,10 +74,24 @@ void loop() {
     getWifi();
   }
   else{
+    // if there's data available, read a packet
     int packetSize = network.parsePacket();
     if(packetSize){
+      //Send port recived info
+      network.beginPacket(network.remoteIP(), network.remotePort();
+      network.write("Port: ");
+      network.write(network.remotePort());
+      network.endPacket();
+      //Send packetSize recived
+      network.beginPacket(network.remoteIP(), network.remotePort();
+      network.write("Packet Size ");
+      network.write(packetSize);
+      network.endPacket();
+      
+      // read the packet into packetBufffer
       int length = network.read(packetBuffer, 255);
       remotePort = network.remotePort();
+      
       if(length > 0){
         mov = packetBuffer;
         if (mov == <particular button is pressed>){
@@ -92,9 +106,22 @@ void loop() {
           SR.write(90);
           SL.write(90);
         }
-        if (mov != <forward> || != <backward>){
+        if (mov == 'w'){
+          //Move Forward
+          digitalWrite(MR,LOW) ;
+          digitalWrite(ML,HIGH) ;
+        }
+        if (mov == 's'){
+          digitalWrite(MR,HIGH) ;
+          digitalWrite(ML,LOW) ;
+        }
+        if (mov == 'a'){
           digitalWrite(MR,HIGH) ;
           digitalWrite(ML,HIGH) ;
+        }
+        if (mov == 'd'){
+          digitalWrite(MR,LOW) ;
+          digitalWrite(ML,LOW) ;
         }
       }
       unsigned long int millis = millis();
