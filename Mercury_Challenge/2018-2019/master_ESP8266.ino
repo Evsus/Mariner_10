@@ -24,33 +24,43 @@ void getWiFi() {
   Serial.println(WiFi.localIP());
 }
 
+//determine input from socket or get wifi if not connected
+int check() {
+  if(WiFi.status() != WL_CONNECTED){
+    getWiFi();
+  }
+  int packetSize = server.parsePacket(); //is something on the socket
+  if(packetSize){ //if there is
+    int len = server.read(Packet, 255); //shift it into Packet var and get the length of byte(s)
+    if (len > 0){ //seems redundant, but it allows the message to be chomped down
+      Packet[len] = 0; //chomp message
+      Serial.println(Packet);  //display message
+      int input = atoi(Packet); //turn message input expected numeric value
+      return input; //give the function the number back
+    }
+  }
+}
+
 void setup() {
  
   Serial.begin(115200);
+  pinMode(LED_BUILTIN, OUTPUT); //Initialize the Led_builtin pin as an output
+  digitalWrite(LED_BUILTIN, LOW); //Turn the LED on
   
 }
  
 void loop() {
+  digitalWrite(LED_BUILTIN, HIGH); //Turn the LED off by making the voltage HIGH
   getWiFi();
   wifiServer.begin(localUdpPort);
  
-  WiFiClient client = wifiServer.available();
+  while(WiFi.status() == WL_CONNECTED) {
+    int mov = check();
+  }
  
-  if (client) {
- 
-    while (client.connected()) {
- 
-      while (client.available()>0) {
-        char c = client.read();
-        Serial.println(c);
-        client.write(c);
-      }
- 
-      delay(10);
-    }
- 
+    /*
     client.stop();
-    Serial.println("Client disconnected");
+    Serial.println("Client disconnected");*/
  
   }
 }
