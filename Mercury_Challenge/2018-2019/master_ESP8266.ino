@@ -1,3 +1,7 @@
+/* https://techtutorialsx.com/2017/11/13/esp32-arduino-setting-a-socket-server/
+
+https://techtutorialsx.com/2018/05/17/esp32-arduino-sending-data-with-socket-client/
+*/
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
