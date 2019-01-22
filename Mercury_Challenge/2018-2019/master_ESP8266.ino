@@ -12,7 +12,7 @@ char Packet[255];
 
 void getWiFi() {
   //get wifi and displya waitng perdiod in serial monitor
-  Wifi.begin(ssid, psw);
+  WiFi.begin(ssid, psw);
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
@@ -52,10 +52,11 @@ void setup() {
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH); //Turn the LED off by making the voltage HIGH
   getWiFi();
-  wifiServer.begin(localUdpPort);
+  server.begin(localUdpPort);
  
   while(WiFi.status() == WL_CONNECTED) {
     int mov = check();
+    Serial.println(mov);
   }
  
     /*
@@ -63,4 +64,3 @@ void loop() {
     Serial.println("Client disconnected");*/
  
   }
-}
