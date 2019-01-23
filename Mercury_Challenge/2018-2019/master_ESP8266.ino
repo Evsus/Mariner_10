@@ -61,6 +61,12 @@ void loop() {
   while(WiFi.status() == WL_CONNECTED) {
     int mov = check();
     Serial.println(mov);
+    for(int i = 0; i < 10; i++) {
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(500);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(500)
+    }
   }
  
     /*
