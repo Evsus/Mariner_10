@@ -4,12 +4,12 @@
 #include <Servo.h>
 
 //Wifi vars
-int wifiLed = ?; //tbd
-int noWifiLed = ?; //tbd
+int wifiLed = 3; //tbd
+int noWifiLed = 4; //tbd
 int status = WL_IDLE_STATUS;
 char ssid[] = "DE-Wireless";
 unsigned int localPort = ?; //tbd
-unsigned int remotePort = ?; //tbd
+unsigned int remotePort = ?; //this will be hardcoded?
 char hostName = "?"; //tbd (computer acting as host)
 char packetBuffer[255];
 char heartBeat = "<3";
