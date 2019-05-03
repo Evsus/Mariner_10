@@ -1,0 +1,76 @@
+#udpserver.pl
+
+#use declarations
+use strict;
+use diagnostics;
+use warnings; 
+use IO::Socket::INET; #https://www.thegeekstuff.com/2010/07/perl-tcp-udp-socket-programming/
+use Sys::Hostname;
+use Tk; #http://search.cpan.org/dist/Tk-804.027/pod/UserGuide.pod
+$| = 1; #https://perl.plover.com/FAQs/Buffering.html
+#http://ask-leo.com/how_do_i_turn_off_keyboard_repeat.html
+
+#global vars
+my ($socket, $received_data);
+my ($peer_address, $peer_port);
+print "Please enter IP and port: ";
+my $ip_address = <>;
+#subroutine connect
+sub udp_connect{
+    $socket = new IO::Socket::INET(
+        PeerAddr => $ip_address,
+        Proto    => 'udp'
+        );
+}
+#read from socket
+sub read_udp{
+    my $heart_beat = <$socket>;
+    print "$heart_beat";
+}
+
+#master loop
+udp_connect();
+my $mw = MainWindow->new;
+#detect key inputs
+$mw->bind('<KeyRelease>' => sub{
+                                $socket->send("10");
+                                });
+$mw->bind('<KeyPress-w>' => sub{
+                                $socket->send("119");
+                                });
+$mw->bind('<KeyPress-a>' => sub{
+                                $socket->send("97");
+                                });
+$mw->bind('<KeyPress-s>' => sub{
+                                $socket->send("116");
+                                });
+$mw->bind('<KeyPress-d>' => sub{
+                                $socket->send("100");
+                                });
+$mw->bind('<KeyPress->i' => sub{
+                                $socket->send("1");
+                                });
+$mw->bind('<KeyPress-j>' => sub{
+                                $socket->send("2");
+                                });
+$mw->bind('<KeyPress-k>' => sub{
+                                $socket->send("3");
+                                });
+$mw->bind('<KeyPress-l>' => sub{
+                                $socket->send("4");
+                                });
+$mw->bind('<KeyPress-q>' => sub{
+                                $socket->send("5");
+                                });
+$mw->bind('<KeyPress-e>' => sub{
+                                $socket->send("6");
+                                });
+$mw->bind('<KeyPress-r>' => sub{
+                                $socket->send("7");
+                                });
+$mw->bind('<KeyPress-f>' => sub{
+                                $socket->send("8");
+                                });
+
+    
+MainLoop;
