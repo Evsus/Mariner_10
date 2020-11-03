@@ -19,6 +19,18 @@ digitalWrite(MR,HIGH) ;
 digitalWrite(ML,LOW) ;
 analogWrite(pwm,255) ;
 
+//Back
+digitalWrite(MR,LOW ) ;
+digitalWrite(ML,HIGH) ;
+
+//LEFT
+digitalWrite(MR,HIGH) ;
+digitalWrite(ML,HIGH) ;
+
+//RIGHT
+digitalWrite(MR,LOW) ;
+digitalWrite(ML,LOW) ;
+
 /*setting pwm of the motor to 255
 we can change the speed of rotaion
 by chaning pwm input but we are only

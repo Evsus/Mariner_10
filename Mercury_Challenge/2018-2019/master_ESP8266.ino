@@ -7,7 +7,7 @@ https://techtutorialsx.com/2018/05/17/esp32-arduino-sending-data-with-socket-cli
 
 //Wifi Vars
 char ssid[] = "DE-Wireless";
-char psw[] = "";
+char psw[] = null;
 
 //UDP vars
 WiFiUDP server;
